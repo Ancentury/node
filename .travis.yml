@@ -5,3 +5,12 @@ services:
 script:
     - docker build -t ancentury/node .
     - docker images ancentury/node
+
+before_deploy:
+    - docker login -u ancentury -p yAw?B?#82b*#5iG
+
+deploy:
+    provider: script
+    script: docker push ancentury/node
+    on:
+        branch: master
